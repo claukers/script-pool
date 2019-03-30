@@ -32,6 +32,8 @@ await instance = pool.acquire();
 instance.send(msg);*/
 // then release
 await pool.release(instance);
+// await pool.drain();
+// await pool.clear();
 ```
 
 ## fork pool
@@ -53,6 +55,8 @@ await instance = pool.acquire();
 instance.send(msg);*/
 // then release
 await pool.release(instance);
+// await pool.drain();
+// await pool.clear();
 ```
 
 see **generic-pool**[https://github.com/coopernurse/node-pool#readme] for more options.
