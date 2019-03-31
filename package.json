@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claukers/script-pool.git"
+  },
   "scripts": {
     "test": "npm run testfile test/**.test.js",
     "testfile": "mocha"
