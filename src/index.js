@@ -6,6 +6,13 @@ const {
   EventEmitter
 } = require('events');
 const path = require('path');
+const {
+  setupAutoRestart,
+  cancelAutoRestart
+} = require("./util");
+
+module.exports.setupAutoRestart = setupAutoRestart;
+module.exports.cancelAutoRestart = cancelAutoRestart;
 
 module.exports.createForkPool = (opts, modulePath, args, options) => {
   const factory = {
@@ -174,7 +181,6 @@ module.exports.createClusterPool = (opts, modulePath, args) => {
       delete childs[msg.pid];
     }
   });
-
 
 
   return pool;
