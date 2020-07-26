@@ -1,7 +1,6 @@
 const {
   describe,
-  it,
-  beforeEach
+  it
 } = require('mocha');
 const {
   resolve
@@ -9,10 +8,6 @@ const {
 const {
   expect
 } = require('chai');
-const {
-  timer,
-  avg
-} = require('./data/util.js');
 
 
 describe('child exit', function () {
@@ -22,7 +17,7 @@ describe('child exit', function () {
     createClusterPool,
     createForkPool
   } = require('../src');
-  [{ mode: "cluster", create: createClusterPool }, { mode: "fork", create: createForkPool }].forEach((testCase) => {
+  [{mode: "cluster", create: createClusterPool}, {mode: "fork", create: createForkPool}].forEach((testCase) => {
     it(testCase.mode + ' child exit 1 with testOnBorrow false and draining with alive dead worker should return a dead worker and emit exit', (done) => {
       const test = async () => {
         const min = 1;

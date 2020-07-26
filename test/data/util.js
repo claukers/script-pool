@@ -1,23 +1,18 @@
-module.exports.avg = () => {
-  let total, count;
-  count = 0;
-  total = 0;
-  return {
-    add: (n) => {
-      total += n;
-      count++;
-    },
-    avg: () => {
-      return total / count;
-    }
-  }
-};
+module.exports.MS = {
+  R: 1,
+  B: 100
+}
 
 module.exports.timer = () => {
   let now = new Date().getTime();
+  let stopped = false;
   return {
-    lap: () => {
+    stop: () => {
       const elapsed = new Date().getTime() - now;
+      if (stopped) {
+        throw new Error("STOPPED!");
+      }
+      stopped = true;
       return elapsed;
     }
   }
