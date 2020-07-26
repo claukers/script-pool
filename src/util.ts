@@ -122,13 +122,13 @@ export const sendScriptData = ({child, data}: SendScriptDataOptions): Promise<st
   const messageUuid = v4();
   return new Promise<string>((resolve, reject) => {
     try {
-      if (typeof data.uuid !== "undefined") {
+      if (data !== null && data !== undefined && typeof data.uuid !== "undefined") {
         reject(new Error("data cannot contain a key called uuid! invalid data.uuid."));
       } else {
-        child.send({
+        child.send(data ? {
           uuid: messageUuid,
           ...data
-        });
+        } : {uuid: messageUuid});
         resolve(messageUuid);
       }
     } catch (e) {
@@ -141,11 +141,11 @@ export const waitScriptResponse = ({child, timeoutMS, data}: WaitScriptResponseO
   return new Promise<any | void>(async (resolve, reject) => {
     const messageListener = (msg) => {
       try {
-        const {uuid, ...data} = msg;
+        const {uuid, ...rest} = msg;
         if (uuid === messageUuid) {
           clearTimeout(timeout);
           child.removeListener("message", messageListener);
-          resolve(data);
+          resolve(rest);
         }
       } catch (e) {
         clearTimeout(timeout);
