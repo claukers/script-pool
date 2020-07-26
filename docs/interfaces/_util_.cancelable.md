@@ -22,7 +22,7 @@
 
 • **cancel**: *function*
 
-*Defined in [src/util.ts:59](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L59)*
+*Defined in [src/util.ts:45](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L45)*
 
 #### Type declaration:
 

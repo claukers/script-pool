@@ -6,32 +6,22 @@
 
 ### References
 
-* [CallScriptArgs](_index_.md#callscriptargs)
 * [Cancelable](_index_.md#cancelable)
 * [CancelableEventEmitter](_index_.md#cancelableeventemitter)
 * [DataMap](_index_.md#datamap)
 * [OnScriptDataOptions](_index_.md#onscriptdataoptions)
-* [ScheduleCallScriptOptions](_index_.md#schedulecallscriptoptions)
 * [SendScriptDataOptions](_index_.md#sendscriptdataoptions)
 * [WaitScriptResponseOptions](_index_.md#waitscriptresponseoptions)
-* [callScript](_index_.md#callscript)
 * [cancelAutoRestart](_index_.md#cancelautorestart)
 * [createClusterPool](_index_.md#createclusterpool)
 * [createForkPool](_index_.md#createforkpool)
 * [onScriptData](_index_.md#onscriptdata)
-* [scheduleCallScript](_index_.md#schedulecallscript)
 * [sendScriptData](_index_.md#sendscriptdata)
 * [setupAutoRestart](_index_.md#setupautorestart)
 * [waitScriptExit](_index_.md#waitscriptexit)
 * [waitScriptResponse](_index_.md#waitscriptresponse)
 
 ## References
-
-###  CallScriptArgs
-
-• **CallScriptArgs**:
-
-___
 
 ###  Cancelable
 
@@ -57,12 +47,6 @@ ___
 
 ___
 
-###  ScheduleCallScriptOptions
-
-• **ScheduleCallScriptOptions**:
-
-___
-
 ###  SendScriptDataOptions
 
 • **SendScriptDataOptions**:
@@ -72,12 +56,6 @@ ___
 ###  WaitScriptResponseOptions
 
 • **WaitScriptResponseOptions**:
-
-___
-
-###  callScript
-
-• **callScript**:
 
 ___
 
@@ -102,12 +80,6 @@ ___
 ###  onScriptData
 
 • **onScriptData**:
-
-___
-
-###  scheduleCallScript
-
-• **scheduleCallScript**:
 
 ___
 

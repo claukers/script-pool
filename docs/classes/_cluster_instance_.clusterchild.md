@@ -29,7 +29,7 @@
 
 \+ **new ClusterChild**(`worker`: Worker): *[ClusterChild](_cluster_instance_.clusterchild.md)*
 
-*Defined in [src/cluster_instance.ts:11](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L11)*
+*Defined in [src/cluster_instance.ts:11](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L11)*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 
 • **unExpectedExitListener**: *any* = null
 
-*Defined in [src/cluster_instance.ts:11](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L11)*
+*Defined in [src/cluster_instance.ts:11](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L11)*
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 • **worker**: *Worker*
 
-*Defined in [src/cluster_instance.ts:13](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L13)*
+*Defined in [src/cluster_instance.ts:13](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L13)*
 
 ## Methods
 
@@ -61,7 +61,7 @@ ___
 
 ▸ **isAlive**(): *boolean*
 
-*Defined in [src/cluster_instance.ts:37](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L37)*
+*Defined in [src/cluster_instance.ts:37](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L37)*
 
 **Returns:** *boolean*
 
@@ -71,7 +71,7 @@ ___
 
 ▸ **kill**(): *Promise‹number›*
 
-*Defined in [src/cluster_instance.ts:47](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L47)*
+*Defined in [src/cluster_instance.ts:47](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L47)*
 
 **Returns:** *Promise‹number›*
 
@@ -81,7 +81,7 @@ ___
 
 ▸ **send**(`msg`: Serializable): *boolean*
 
-*Defined in [src/cluster_instance.ts:33](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L33)*
+*Defined in [src/cluster_instance.ts:33](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L33)*
 
 **Parameters:**
 

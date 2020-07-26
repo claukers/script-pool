@@ -14,7 +14,7 @@
 
 ▸ **createForkPool**(`opts`: Options, `modulePath`: string, `args?`: string[], `options?`: ForkOptions): *Pool‹ChildProcess›*
 
-*Defined in [src/fork.ts:4](https://github.com/claukers/script-pool/blob/b4310bf/src/fork.ts#L4)*
+*Defined in [src/fork.ts:4](https://github.com/claukers/script-pool/blob/4ec84bc/src/fork.ts#L4)*
 
 **Parameters:**
 

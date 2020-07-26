@@ -53,7 +53,7 @@
 
 *Overrides [SendInterface](../interfaces/_cluster_.sendinterface.md).[constructor](../interfaces/_cluster_.sendinterface.md#constructor)*
 
-*Defined in [src/cluster.ts:21](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L21)*
+*Defined in [src/cluster.ts:21](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L21)*
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ Name | Type |
 
 • **clusterInstance**: *ChildProcess*
 
-*Defined in [src/cluster.ts:23](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L23)*
+*Defined in [src/cluster.ts:23](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L23)*
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 • **pid**: *any*
 
-*Defined in [src/cluster.ts:23](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L23)*
+*Defined in [src/cluster.ts:23](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L23)*
 
 ___
 
@@ -429,7 +429,7 @@ ___
 
 ▸ **send**(`m`: object): *boolean*
 
-*Defined in [src/cluster.ts:27](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L27)*
+*Defined in [src/cluster.ts:27](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L27)*
 
 **Parameters:**
 

@@ -18,7 +18,7 @@
 
 • **FORK**: = "FORK"
 
-*Defined in [src/cluster.ts:10](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L10)*
+*Defined in [src/cluster.ts:10](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L10)*
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 • **KILL**: = "KILL"
 
-*Defined in [src/cluster.ts:11](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L11)*
+*Defined in [src/cluster.ts:11](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L11)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 • **MSG**: = "MSG"
 
-*Defined in [src/cluster.ts:13](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L13)*
+*Defined in [src/cluster.ts:13](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L13)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 • **UNEXPECTED_ERR**: = "UNEXPECTED_ERR"
 
-*Defined in [src/cluster.ts:14](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L14)*
+*Defined in [src/cluster.ts:14](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L14)*
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 • **UNEXPECTED_EXIT**: = "UNEXPECTED_EXIT"
 
-*Defined in [src/cluster.ts:12](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L12)*
+*Defined in [src/cluster.ts:12](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L12)*

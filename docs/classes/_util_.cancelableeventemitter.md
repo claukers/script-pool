@@ -51,7 +51,7 @@
 
 *Overrides [SendInterface](../interfaces/_cluster_.sendinterface.md).[constructor](../interfaces/_cluster_.sendinterface.md#constructor)*
 
-*Defined in [src/util.ts:62](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L62)*
+*Defined in [src/util.ts:48](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L48)*
 
 **Returns:** *[CancelableEventEmitter](_util_.cancelableeventemitter.md)*
 
@@ -115,7 +115,7 @@ ___
 
 ▸ **cancel**(): *Promise‹void›*
 
-*Defined in [src/util.ts:67](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L67)*
+*Defined in [src/util.ts:53](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L53)*
 
 **Returns:** *Promise‹void›*
 

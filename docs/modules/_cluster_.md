@@ -30,7 +30,7 @@
 
 • **clusterInstanceTimeoutMS**: *number* = 1000 * 60 * 3
 
-*Defined in [src/cluster.ts:7](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L7)*
+*Defined in [src/cluster.ts:7](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L7)*
 
 ## Functions
 
@@ -38,7 +38,7 @@
 
 ▸ **createClusterPool**(`opts`: Options, `modulePath`: string, `args?`: string[], `options?`: ForkOptions): *Pool‹[ClusterWorker](../classes/_cluster_.clusterworker.md)›*
 
-*Defined in [src/cluster.ts:42](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L42)*
+*Defined in [src/cluster.ts:42](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L42)*
 
 **Parameters:**
 

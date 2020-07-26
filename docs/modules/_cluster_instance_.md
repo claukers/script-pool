@@ -19,7 +19,7 @@
 
 • **children**: *object*
 
-*Defined in [src/cluster_instance.ts:8](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L8)*
+*Defined in [src/cluster_instance.ts:8](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L8)*
 
 #### Type declaration:
 
@@ -31,4 +31,4 @@ ___
 
 • **modulePath**: *string* = process.argv[2]
 
-*Defined in [src/cluster_instance.ts:6](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster_instance.ts#L6)*
+*Defined in [src/cluster_instance.ts:6](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster_instance.ts#L6)*

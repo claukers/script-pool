@@ -392,7 +392,7 @@ ___
 
 ▸ **send**(`m`: object): *boolean*
 
-*Defined in [src/cluster.ts:18](https://github.com/claukers/script-pool/blob/b4310bf/src/cluster.ts#L18)*
+*Defined in [src/cluster.ts:18](https://github.com/claukers/script-pool/blob/4ec84bc/src/cluster.ts#L18)*
 
 **Parameters:**
 

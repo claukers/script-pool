@@ -24,7 +24,7 @@
 
 *Inherited from [SendScriptDataOptions](_util_.sendscriptdataoptions.md).[child](_util_.sendscriptdataoptions.md#child)*
 
-*Defined in [src/util.ts:80](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L80)*
+*Defined in [src/util.ts:66](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L66)*
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 *Inherited from [SendScriptDataOptions](_util_.sendscriptdataoptions.md).[data](_util_.sendscriptdataoptions.md#optional-data)*
 
-*Defined in [src/util.ts:81](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L81)*
+*Defined in [src/util.ts:67](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L67)*
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 • **timeoutMS**: *number*
 
-*Defined in [src/util.ts:85](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L85)*
+*Defined in [src/util.ts:71](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L71)*

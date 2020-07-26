@@ -10,10 +10,8 @@
 
 ### Interfaces
 
-* [CallScriptArgs](../interfaces/_util_.callscriptargs.md)
 * [Cancelable](../interfaces/_util_.cancelable.md)
 * [DataMap](../interfaces/_util_.datamap.md)
-* [ScheduleCallScriptOptions](../interfaces/_util_.schedulecallscriptoptions.md)
 * [SendScriptDataOptions](../interfaces/_util_.sendscriptdataoptions.md)
 * [WaitScriptResponseOptions](../interfaces/_util_.waitscriptresponseoptions.md)
 
@@ -23,7 +21,6 @@
 
 ### Functions
 
-* [callScript](_util_.md#const-callscript)
 * [cancelAutoRestart](_util_.md#const-cancelautorestart)
 * [onScriptData](_util_.md#const-onscriptdata)
 * [sendScriptData](_util_.md#const-sendscriptdata)
@@ -37,7 +34,7 @@
 
 Ƭ **OnScriptDataOptions**: *function*
 
-*Defined in [src/util.ts:73](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L73)*
+*Defined in [src/util.ts:59](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L59)*
 
 #### Type declaration:
 
@@ -51,35 +48,11 @@ Name | Type |
 
 ## Functions
 
-### `Const` callScript
-
-▸ **callScript**(`__namedParameters`: object): *Promise‹any›*
-
-*Defined in [src/util.ts:180](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L180)*
-
-**Parameters:**
-
-▪ **__namedParameters**: *object*
-
-Name | Type |
------- | ------ |
-`args` | string[] |
-`data` | object |
-`env` | object |
-`modulePath` | string |
-`noExitWait` | boolean |
-`noKillOnError` | boolean |
-`timeoutMS` | number |
-
-**Returns:** *Promise‹any›*
-
-___
-
 ### `Const` cancelAutoRestart
 
 ▸ **cancelAutoRestart**(`pool`: Pool‹[ClusterWorker](../classes/_cluster_.clusterworker.md) | ChildProcess›): *Promise‹Pool‹ChildProcess | [ClusterWorker](../classes/_cluster_.clusterworker.md)››*
 
-*Defined in [src/util.ts:35](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L35)*
+*Defined in [src/util.ts:35](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L35)*
 
 **Parameters:**
 
@@ -95,7 +68,7 @@ ___
 
 ▸ **onScriptData**(`cb`: [OnScriptDataOptions](_util_.md#onscriptdataoptions)): *[CancelableEventEmitter](../classes/_util_.cancelableeventemitter.md)*
 
-*Defined in [src/util.ts:88](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L88)*
+*Defined in [src/util.ts:74](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L74)*
 
 **Parameters:**
 
@@ -111,7 +84,7 @@ ___
 
 ▸ **sendScriptData**(`__namedParameters`: object): *Promise‹string›*
 
-*Defined in [src/util.ts:121](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L121)*
+*Defined in [src/util.ts:107](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L107)*
 
 **Parameters:**
 
@@ -130,7 +103,7 @@ ___
 
 ▸ **setupAutoRestart**(`pool`: Pool‹ChildProcess | [ClusterWorker](../classes/_cluster_.clusterworker.md)›, `timeout`: number, `internalCall`: boolean): *Promise‹Pool‹ChildProcess | [ClusterWorker](../classes/_cluster_.clusterworker.md)››*
 
-*Defined in [src/util.ts:8](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L8)*
+*Defined in [src/util.ts:8](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L8)*
 
 **Parameters:**
 
@@ -148,7 +121,7 @@ ___
 
 ▸ **waitScriptExit**(`child`: ChildProcess): *Promise‹void›*
 
-*Defined in [src/util.ts:165](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L165)*
+*Defined in [src/util.ts:151](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L151)*
 
 **Parameters:**
 
@@ -164,7 +137,7 @@ ___
 
 ▸ **waitScriptResponse**(`__namedParameters`: object): *Promise‹any | void›*
 
-*Defined in [src/util.ts:140](https://github.com/claukers/script-pool/blob/b4310bf/src/util.ts#L140)*
+*Defined in [src/util.ts:126](https://github.com/claukers/script-pool/blob/4ec84bc/src/util.ts#L126)*
 
 **Parameters:**
 
