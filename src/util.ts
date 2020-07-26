@@ -118,6 +118,37 @@ export const onScriptData = (cb: OnScriptDataOptions): CancelableEventEmitter =>
   return emitter;
 };
 
+export const onceScriptData = (cb: OnScriptDataOptions): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    const msgListener = (msg) => {
+      try {
+        const {uuid, ...msgData} = msg;
+        if (typeof uuid === "undefined" || typeof uuid !== "string") {
+          reject(new Error("invalid msg.uuid!"));
+        } else {
+          cb(msgData).then((ret) => {
+            const retMsg = ret ? {
+              uuid,
+              ...ret
+            } : {uuid};
+            try {
+              process.send(retMsg);
+              resolve();
+            } catch (e2) {
+              reject(e2);
+            }
+          }).catch((e) => {
+            reject(e);
+          });
+        }
+      } catch (e) {
+        reject(e);
+      }
+    };
+    process.once("message", msgListener);
+  });
+};
+
 export const sendScriptData = ({child, data}: SendScriptDataOptions): Promise<string> => {
   const messageUuid = v4();
   return new Promise<string>((resolve, reject) => {
