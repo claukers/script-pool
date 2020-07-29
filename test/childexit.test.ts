@@ -1,8 +1,7 @@
 import {describe, it} from 'mocha';
 
 import {resolve} from 'path';
-
-import {expect} from 'chai';
+import {strictEqual} from "assert";
 
 
 describe('child exit', function () {
@@ -40,15 +39,15 @@ describe('child exit', function () {
             try {
               instance = await pool.acquire();
               console.log(instance.pid);
-              expect(instance.pid).to.be.equals(pid);
-              expect(dead).to.be.equals(true);
+              strictEqual(instance.pid, pid);
+              strictEqual(dead, true);
               try {
                 process.kill(instance.pid, 0);
                 reject(new Error("bad state should be dead!"));
               } catch (e) {
                 try {
                   console.error(e.message);
-                  expect(e.message).to.be.equals("kill ESRCH");
+                  strictEqual(e.message, "kill ESRCH");
                   await pool.release(instance);
                   await pool.drain();
                   await pool.clear();
@@ -95,9 +94,9 @@ describe('child exit', function () {
           setTimeout(async () => {
             try {
               instance = await pool.acquire();
-              expect(dead).to.be.equals(true);
+              strictEqual(dead, true);
               console.log(instance.pid);
-              expect(instance.pid).to.be.not.equals(pid);
+              strictEqual(instance.pid, pid);
               await pool.release(instance);
               await pool.drain();
               await pool.clear();
@@ -139,9 +138,9 @@ describe('child exit', function () {
           setTimeout(async () => {
             try {
               instance = await pool.acquire();
-              expect(dead).to.be.equals(true);
+              strictEqual(dead, true);
               console.log(instance.pid);
-              expect(instance.pid).to.be.not.equals(pid);
+              strictEqual(instance.pid, pid);
               await pool.release(instance);
               setTimeout(async () => {
                 await pool.drain();

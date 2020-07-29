@@ -1,7 +1,7 @@
 import {beforeEach, describe, it} from 'mocha';
-import {expect} from 'chai';
 import {createClusterPool, createForkPool, waitScriptResponse} from '../src';
 import {resolve as pathResolve} from "path";
+import {strictEqual} from "assert";
 
 const {MS, timer} = require('./data/util.js');
 
@@ -92,16 +92,16 @@ describe("simple tests", function () {
                             if (pids.indexOf(child.pid) === -1) {
                               pids.push(child.pid);
                             }
-                            const expectedMsg = {
+                            const strictEqualedMsg = {
                               text: `hola ${i}`,
                               i: `${i}`
                             };
                             const msg = await waitScriptResponse({
                               child,
                               timeoutMS: simpleTestsTimeoutMS,
-                              data: expectedMsg
+                              data: strictEqualedMsg
                             });
-                            expect(msg.text).to.be.equal(expectedMsg.text);
+                            strictEqual(msg.text, strictEqualedMsg.text);
                             received++;
                             await pool.release(child as any);
                             resolve();
@@ -113,14 +113,14 @@ describe("simple tests", function () {
                         }));
                       }
                       await Promise.all(tR);
-                      expect(received).to.be.equal(toSend);
+                      strictEqual(received, toSend);
                       const took = allClock.stop();
                       await pool.drain();
                       pids.forEach((pid) => {
                         try {
                           process.kill(pid, 0);
                         } catch (e) {
-                          expect(e.message).to.be.equal(undefined);
+                          strictEqual(e.message, undefined);
                         }
                       });
                       await pool.clear();
@@ -162,9 +162,9 @@ describe("simple tests", function () {
                       pids.forEach((pid) => {
                         try {
                           process.kill(pid, 0);
-                          expect(true, 'Bad State').to.be.equal(false);
+                          strictEqual(true, false);
                         } catch (e) {
-                          expect(e.message).to.be.equal('kill ESRCH');
+                          strictEqual(e.message, 'kill ESRCH');
                         }
                       });
                     })();
@@ -188,7 +188,7 @@ describe("simple tests", function () {
                         oneOne,
                         worst
                       }));
-                      expect(best.configData.max > 1, 'overhead detected!!').to.be.equal(true);
+                      strictEqual(best.configData.max > 1, true, "overhead detected!");
                     }
                     running = false;
                   } catch (e) {
