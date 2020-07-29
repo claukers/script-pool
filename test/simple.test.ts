@@ -1,8 +1,9 @@
 import {beforeEach, describe, it} from 'mocha';
 import {expect} from 'chai';
-import {MS, timer} from './data/util.js';
 import {createClusterPool, createForkPool, waitScriptResponse} from '../src';
 import {resolve as pathResolve} from "path";
+
+const {MS, timer} = require('./data/util.js');
 
 const simpleTestsTimeoutMS = 999999999;
 
@@ -52,9 +53,9 @@ describe("simple tests", function () {
             });
 
             // HERE TASK.forEach WAS (YODA BETTER KNOWS)
-            let best = null;
-            let oneOne = null;
-            let worst = null;
+            let best: any = null;
+            let oneOne: any = null;
+            let worst: any = null;
             const toFinish = Object.keys(configs).length;
             let finished = 0;
             configs.forEach((configData) => {
@@ -63,7 +64,7 @@ describe("simple tests", function () {
                 (async () => {
                   try {
                     running = true;
-                    const pids = [];
+                    const pids: number[] = [];
                     let received = 0;
                     const toSend = jobs;
                     await (async () => {
@@ -73,7 +74,7 @@ describe("simple tests", function () {
                         autostart: true,
                       }, pathResolve(__dirname, 'data', modulePath), undefined, undefined);
                       await pool.start();
-                      let instances = [];
+                      let instances: any[] = [];
                       for (let i = 0; i < configData.min; i++) {
                         instances.push(await pool.acquire());
                       }
@@ -81,7 +82,7 @@ describe("simple tests", function () {
                       for (const instance of instances) {
                         await pool.release(instance);
                       }
-                      instances = null;
+                      instances = [];
                       const allClock = timer();
                       const tR = [];
                       for (let i = 0; i < toSend; i++) {

@@ -11,21 +11,30 @@ export class ClusterChild {
   private readonly unExpectedExitListener: any = null;
 
   constructor(private worker: Worker) {
-    worker.on('message', (msg) => {
-      process.send({
-        CLUSTER_MESSAGE_TYPE: CLUSTER_MESSAGE_TYPES.MSG,
-        pid: worker.process.pid,
-        msg
-      });
+    worker.on('message', (msg: any) => {
+      if (process.send) {
+        process.send({
+          CLUSTER_MESSAGE_TYPE: CLUSTER_MESSAGE_TYPES.MSG,
+          pid: worker.process.pid,
+          msg
+        });
+      } else {
+        console.error(new Error("process.send is not defined!"));
+      }
+
     });
-    this.unExpectedExitListener = (code) => {
+    this.unExpectedExitListener = (code: string | null) => {
       delete children[worker.process.pid];
-      process.send({
-        CLUSTER_MESSAGE_TYPE: CLUSTER_MESSAGE_TYPES.UNEXPECTED_EXIT,
-        pid: worker.process.pid,
-        code,
-        exit: true
-      });
+      if (process.send) {
+        process.send({
+          CLUSTER_MESSAGE_TYPE: CLUSTER_MESSAGE_TYPES.UNEXPECTED_EXIT,
+          pid: worker.process.pid,
+          code,
+          exit: true
+        });
+      } else {
+        console.error(new Error("process.send is not defined!"));
+      }
     };
     worker.process.on('exit', this.unExpectedExitListener);
   }

@@ -73,7 +73,7 @@ export interface WaitScriptResponseOptions extends SendScriptDataOptions {
 
 export const onScriptData = (cb: OnScriptDataOptions): CancelableEventEmitter => {
   const emitter = new CancelableEventEmitter();
-  const msgListener = (msg) => {
+  const msgListener = (msg: any) => {
     try {
       const {uuid, ...msgData} = msg;
       if (typeof uuid === "undefined" || typeof uuid !== "string") {
@@ -85,7 +85,11 @@ export const onScriptData = (cb: OnScriptDataOptions): CancelableEventEmitter =>
             ...ret
           } : {uuid};
           try {
-            process.send(retMsg);
+            if (process.send) {
+              process.send(retMsg);
+            } else {
+              emitter.emit("error", new Error("process.send not defined!!"));
+            }
           } catch (e2) {
             emitter.emit("error", e2);
           }
@@ -125,7 +129,7 @@ export const sendScriptData = ({child, data}: SendScriptDataOptions): Promise<st
 
 export const waitScriptResponse = ({child, timeoutMS, data}: WaitScriptResponseOptions): Promise<any | void> => {
   return new Promise<any | void>(async (resolve, reject) => {
-    const messageListener = (msg) => {
+    const messageListener = (msg: any) => {
       try {
         const {uuid, ...rest} = msg;
         if (uuid === messageUuid) {

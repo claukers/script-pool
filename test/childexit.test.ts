@@ -1,24 +1,19 @@
-const {
-  describe,
-  it
-} = require('mocha');
-const {
-  resolve
-} = require('path');
-const {
-  expect
-} = require('chai');
+import {describe, it} from 'mocha';
+
+import {resolve} from 'path';
+
+import {expect} from 'chai';
 
 
 describe('child exit', function () {
-  this.timeout(100000);
+  this.timeout(1000000);
 
   const {
     createClusterPool,
     createForkPool
   } = require('../src');
   [{mode: "cluster", create: createClusterPool}, {mode: "fork", create: createForkPool}].forEach((testCase) => {
-    it(testCase.mode + ' child exit 1 with testOnBorrow false and draining with alive dead worker should return a dead worker and emit exit', (done) => {
+    it(testCase.mode + ' child exit 1 with testOnBorrow false and draining with alive dead worker should return a dead worker and emit exit', (done: (value: void) => void | PromiseLike<void>) => {
       const test = async () => {
         const min = 1;
         const max = 1;
@@ -35,7 +30,7 @@ describe('child exit', function () {
         const pid = instance.pid;
         console.log(pid);
         let dead = false;
-        instance.once("exit", (code) => {
+        instance.once("exit", (code: null | string) => {
           console.log("dead");
           dead = true;
         });
@@ -74,7 +69,7 @@ describe('child exit', function () {
       };
       test().then(done).catch(done);
     });
-    it(testCase.mode + ' child exit 1 with testOnBorrow true and draining with alive dead worker should return a alive worker and emit exit', (done) => {
+    it(testCase.mode + ' child exit 1 with testOnBorrow true and draining with alive dead worker should return a alive worker and emit exit', (done: (value: void) => void | PromiseLike<void>) => {
       const test = async () => {
         const min = 1;
         const max = 1;
@@ -89,7 +84,7 @@ describe('child exit', function () {
         await pool.start();
         let instance = await pool.acquire();
         let dead = false;
-        instance.once("exit", (code) => {
+        instance.once("exit", (code: null | string) => {
           console.log("dead");
           dead = true;
         });
@@ -118,7 +113,7 @@ describe('child exit', function () {
       };
       test().then(done).catch(done);
     });
-    it(testCase.mode + ' child exit 1 with testOnBorrow true and draining with dead worker should return a alive worker and emit exit', (done) => {
+    it(testCase.mode + ' child exit 1 with testOnBorrow true and draining with dead worker should return a alive worker and emit exit', (done: (value: void) => void | PromiseLike<void>) => {
       const test = async () => {
         const min = 1;
         const max = 1;
@@ -133,7 +128,7 @@ describe('child exit', function () {
         await pool.start();
         let instance = await pool.acquire();
         let dead = false;
-        instance.once("exit", (code) => {
+        instance.once("exit", (code: null | string) => {
           console.log("dead");
           dead = true;
         });
