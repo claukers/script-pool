@@ -129,40 +129,48 @@ export const sendScriptData = ({child, data}: SendScriptDataOptions): Promise<st
 
 export const waitScriptResponse = ({child, timeoutMS, data}: WaitScriptResponseOptions): Promise<any | void> => {
   return new Promise<any | void>(async (resolve, reject) => {
-    const messageListener = (msg: any) => {
-      try {
-        const {uuid, ...rest} = msg;
-        if (uuid === messageUuid) {
+    try {
+      const messageListener = (msg: any) => {
+        try {
+          const {uuid, ...rest} = msg;
+          if (uuid === messageUuid) {
+            clearTimeout(timeout);
+            child.removeListener("message", messageListener);
+            resolve(rest);
+          }
+        } catch (e) {
           clearTimeout(timeout);
           child.removeListener("message", messageListener);
-          resolve(rest);
+          reject(e);
         }
-      } catch (e) {
-        clearTimeout(timeout);
+      };
+      const timeout = setTimeout(() => {
         child.removeListener("message", messageListener);
-        reject(e);
-      }
-    };
-    const timeout = setTimeout(() => {
-      child.removeListener("message", messageListener);
-      reject(new Error("timeout"));
-    }, timeoutMS);
-    child.on("message", messageListener);
-    const messageUuid = await sendScriptData({child, data});
+        reject(new Error("timeout"));
+      }, timeoutMS);
+      child.on("message", messageListener);
+      const messageUuid = await sendScriptData({child, data});
+    } catch(e) {
+      reject(e);
+    }
   });
 };
 
 export const waitScriptExit = (child: ChildProcess): Promise<void> => {
   const err = new Error(`exit with code`);
   return new Promise((resolve, reject) => {
-    child.once("exit", (code) => {
-      if (code) {
-        //const err = new Error(`exit with code [${code}]`);
-        (err as any).code = `${code}\n${inspect(child)}\n${err.stack}`;
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
+    try {
+      child.once("exit", (code) => {
+        if (code) {
+          //const err = new Error(`exit with code [${code}]`);
+          (err as any).code = `${code}\n${inspect(child)}\n${err.stack}`;
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    } catch (e) {
+      reject(e);
+    }
   });
 }

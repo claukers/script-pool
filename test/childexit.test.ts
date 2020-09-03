@@ -5,7 +5,7 @@ import {strictEqual} from "assert";
 
 
 describe('child exit', function () {
-  this.timeout(1000000);
+  this.timeout(30000);
 
   const {
     createClusterPool,
@@ -96,7 +96,7 @@ describe('child exit', function () {
               instance = await pool.acquire();
               strictEqual(dead, true);
               console.log(instance.pid);
-              strictEqual(instance.pid, pid);
+              strictEqual(instance.pid !== pid, true);
               await pool.release(instance);
               await pool.drain();
               await pool.clear();
@@ -140,7 +140,7 @@ describe('child exit', function () {
               instance = await pool.acquire();
               strictEqual(dead, true);
               console.log(instance.pid);
-              strictEqual(instance.pid, pid);
+              strictEqual(instance.pid !== pid, true);
               await pool.release(instance);
               setTimeout(async () => {
                 await pool.drain();
