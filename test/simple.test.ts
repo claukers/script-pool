@@ -183,11 +183,11 @@ describe("simple tests", function () {
                         console.log(`worst [${jobs}] jobs for ${describeTitle} is {min: ${worst.configData.min}, max: ${worst.configData.max}} and took ${worst.took}ms avg ${worst.avg}ms ${isEcho ? `so ${worst.avg - (MS.B + MS.R)}ms overhead per job` : ""}`);
                       }
 
-                      require('fs').writeFileSync(require('path').resolve(__dirname, "data", "output", `${describeTitle}-${jobs}.json`), JSON.stringify({
+                      /*require('fs').writeFileSync(require('path').resolve(__dirname, "data", "output", `${describeTitle}-${jobs}.json`), JSON.stringify({
                         best,
                         oneOne,
                         worst
-                      }));
+                      }));*/
                       strictEqual(best.configData.max > 1, true, "overhead detected!");
                     }
                     running = false;
