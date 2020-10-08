@@ -42,6 +42,13 @@ export class ClusterWorker extends EventEmitter implements SendInterface {
 export const createClusterPool = (opts: Options, modulePath: string, args?: string[], options?: ForkOptions): Pool<ClusterWorker> => {
   args = args ? args : [];
   const clusterInstance = fork(pathResolve(__dirname, 'cluster_instance'), [modulePath].concat(args), options);
+  if (opts.min) {
+    clusterInstance.setMaxListeners(opts.min * 2);
+  }
+  if (opts.max) {
+    clusterInstance.setMaxListeners(opts.max * 2);
+  }
+
   const waitClusterInstanceExit = waitScriptExit(clusterInstance);
   const children: { [pid: string]: ClusterWorker } = {};
   const factory: Factory<ClusterWorker> = {
